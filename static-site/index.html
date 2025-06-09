@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kbordados</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="icon" type="image/png" href="images/logo.png">
+</head>
+<body class="bg-gray-100 min-h-screen font-sans">
+  <!-- Header -->
+  <header class="bg-white shadow-md p-6 sticky top-0 z-50">
+    <nav class="flex items-center max-w-6xl mx-auto justify-between">
+      <div class="flex items-center space-x-4 flex-shrink-0">
+        <img src="images/logo.png" alt="Kbordados Logo" class="h-12" />
+      </div>
+      <ul class="hidden md:flex space-x-6 text-gray-800 flex-grow justify-center">
+        <li><a href="#inicio" class="hover:text-[#2C345C] transition-colors">Inicio</a></li>
+        <li><a href="#servicios" class="hover:text-[#2C345C] transition-colors">Servicios</a></li>
+        <li><a href="#clientes" class="hover:text-[#2C345C] transition-colors">Clientes</a></li>
+        <li><a href="#trabajos" class="hover:text-[#2C345C] transition-colors">Testimonios</a></li>
+        <li><a href="#contacto" class="hover:text-[#2C345C] transition-colors">Contacto</a></li>
+      </ul>
+      <div class="flex items-center space-x-2 flex-shrink-0">
+        <a href="#contacto" class="bg-[#D48C54] hover:bg-[#2C345C] text-white px-4 py-2 rounded-md transition-colors">Contáctanos</a>
+        <a
+          href="https://api.whatsapp.com/send/?phone=526241295649&text=%F0%9F%91%8B+Hola+Kbordados%2C+me+comunico+para+solicitar+una+cotizaci%C3%B3n+de+productos.+%0A%0AEstos+son+los+productos+que+necesito%3A%0A-+%5BEjemplo+de+producto+1%5D%0A-+%5BEjemplo+de+producto+2%5D%0A%0ALa+fecha+l%C3%ADmite+para+recibirlos+es%3A+%5Bdd%2Fmm%2Faaaa%5D%0A%0AQuedo+atento+a+su+respuesta.+Gracias.%0A&type=phone_number&app_absent=0"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="ml-2 flex items-center justify-center bg-green-500 hover:bg-green-600 rounded-full p-2 shadow transition-colors"
+          title="Contáctanos por WhatsApp"
+        >
+          <img src="images/whatsapp.webp" alt="WhatsApp" class="h-7 w-7" />
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="inicio" class="bg-cover bg-center h-screen flex items-center justify-center relative" style="background-image: url('images/background.jpg')">
+    <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+    <div class="relative text-center text-white">
+      <h1 class="text-4xl sm:text-5xl font-bold mb-4">Kbordados</h1>
+      <p class="text-xl mb-8">Convertimos tu idea en productos físicos de alta calidad</p>
+      <a href="#contacto" class="bg-[#D48C54] hover:bg-[#2C345C] text-white px-6 py-3 rounded-md transition-colors">Obtén tu cotización ahora</a>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="servicios" class="py-12 bg-white">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-8">Nuestros Servicios</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="bg-white shadow-md rounded-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
+          <img src="images/bordado.jpg" alt="Bordado" class="w-full h-48 object-cover" />
+          <div class="p-4">
+            <h3 class="text-xl font-bold">Bordado</h3>
+            <p class="text-gray-700">Ofrecemos bordados profesionales para uniformes y prendas.</p>
+          </div>
+        </div>
+        <div class="bg-white shadow-md rounded-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
+          <img src="images/serigrafia.webp" alt="Serigrafía" class="w-full h-48 object-cover" />
+          <div class="p-4">
+            <h3 class="text-xl font-bold">Serigrafía</h3>
+            <p class="text-gray-700">Impresiones de alta calidad para camisetas y materiales textiles.</p>
+          </div>
+        </div>
+        <div class="bg-white shadow-md rounded-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
+          <img src="images/sublimacion.jpg" alt="Sublimación" class="w-full h-48 object-cover" />
+          <div class="p-4">
+            <h3 class="text-xl font-bold">Sublimación</h3>
+            <p class="text-gray-700">Técnicas avanzadas de sublimación para lograr diseños únicos.</p>
+          </div>
+        </div>
+        <div class="bg-white shadow-md rounded-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
+          <img src="images/grabado.jpg" alt="Grabado" class="w-full h-48 object-cover" />
+          <div class="p-4">
+            <h3 class="text-xl font-bold">Grabado</h3>
+            <p class="text-gray-700">Grabados precisos para botones, insignias y más.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Clients Carousel Section -->
+  <section id="clientes" class="py-12 bg-white">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-8">Nuestros Clientes</h2>
+      <div class="relative flex items-center justify-center">
+        <button id="slideLeft" class="absolute left-0 z-10 px-4 py-6 rounded-full bg-[#2C345C] text-white text-2xl shadow-lg transition-colors" style="top: 50%; transform: translateY(-50%);">&#8592;</button>
+        <div class="w-full">
+          <div id="client-logos" class="grid grid-cols-2 md:grid-cols-6 gap-10 justify-items-center">
+            <!-- Client logos will be injected by JS -->
+          </div>
+        </div>
+        <button id="slideRight" class="absolute right-0 z-10 px-4 py-6 rounded-full bg-[#2C345C] text-white text-2xl shadow-lg transition-colors" style="top: 50%; transform: translateY(-50%);">&#8594;</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section id="trabajos" class="py-12 bg-white">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-8">Lo que dicen nuestros clientes</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="bg-white shadow-md p-4 rounded-lg border border-gray-200">
+          <p class="text-gray-700 italic mb-2">"Nos encantaron los sombreros que escogimos y sobre todo el bordado. Fueron justo lo que buscábamos, ¡muchas gracias!"</p>
+          <p class="text-gray-800 font-bold">- Iris Capital</p>
+        </div>
+        <div class="bg-white shadow-md p-4 rounded-lg border border-gray-200">
+          <p class="text-gray-700 italic mb-2">"Kbordados es nuestro proveedor de playeras de confianza, siempre entregan a tiempo y con excelente calidad."</p>
+          <p class="text-gray-800 font-bold">- South Baja Constructora</p>
+        </div>
+        <div class="bg-white shadow-md p-4 rounded-lg border border-gray-200">
+          <p class="text-gray-700 italic mb-2">"Me encantaron las gorras que mandé a hacer con ustedes. Le atinaron a la calidad, el bordado y el color que buscaba"</p>
+          <p class="text-gray-800 font-bold">- N23 Constructora</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Form Section -->
+  <section id="contacto" class="py-16 bg-gray-100">
+    <div class="container mx-auto px-4 max-w-3xl">
+      <h2 class="text-3xl font-bold text-center mb-8">Contáctanos</h2>
+      <form id="contact-form" class="space-y-4" method="POST" action="https://formspree.io/f/mvgrgnee">
+        <div>
+          <label for="name" class="block text-gray-700 font-bold mb-1">Nombre</label>
+          <input type="text" id="name" name="name" required class="w-full border border-gray-300 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-[#D48C54]" placeholder="Tu nombre completo" />
+        </div>
+        <div>
+          <label for="email" class="block text-gray-700 font-bold mb-1">Email</label>
+          <input type="email" id="email" name="email" required class="w-full border border-gray-300 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-[#D48C54]" placeholder="tu@email.com" />
+        </div>
+        <div>
+          <label for="phone" class="block text-gray-700 font-bold mb-1">Teléfono</label>
+          <input type="text" id="phone" name="phone" required pattern="\d{10}" maxlength="10" inputmode="numeric" class="w-full border border-gray-300 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-[#D48C54]" placeholder="10 dígitos" />
+        </div>
+        <div>
+          <label class="block text-gray-700 font-bold mb-1">¿Qué tipo de servicio buscas?</label>
+          <div class="flex flex-wrap gap-2" id="service-options">
+            <button type="button" class="px-4 py-2 rounded-full border transition-colors text-sm font-medium bg-white text-[#2C345C] border-[#2C345C] hover:bg-[#2C345C] hover:text-white" data-value="Bordados">Bordados</button>
+            <button type="button" class="px-4 py-2 rounded-full border transition-colors text-sm font-medium bg-white text-[#2C345C] border-[#2C345C] hover:bg-[#2C345C] hover:text-white" data-value="Serigrafía">Serigrafía</button>
+            <button type="button" class="px-4 py-2 rounded-full border transition-colors text-sm font-medium bg-white text-[#2C345C] border-[#2C345C] hover:bg-[#2C345C] hover:text-white" data-value="Sublimación">Sublimación</button>
+            <button type="button" class="px-4 py-2 rounded-full border transition-colors text-sm font-medium bg-white text-[#2C345C] border-[#2C345C] hover:bg-[#2C345C] hover:text-white" data-value="Grabado">Grabado</button>
+            <button type="button" class="px-4 py-2 rounded-full border transition-colors text-sm font-medium bg-white text-[#2C345C] border-[#2C345C] hover:bg-[#2C345C] hover:text-white" data-value="Otro">Otro</button>
+          </div>
+          <input type="hidden" name="services" id="services-input" />
+        </div>
+        <div>
+          <label for="message" class="block text-gray-700 font-bold mb-1">Instrucciones para los productos a cotizar</label>
+          <textarea id="message" name="message" rows="5" required class="w-full border border-gray-300 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-[#D48C54]" placeholder="Describe los productos, cantidades, colores, fechas, etc."></textarea>
+        </div>
+        <button type="submit" class="bg-[#D48C54] hover:bg-[#2C345C] text-white px-6 py-3 rounded-md w-full transition-colors">Enviar mensaje</button>
+        <p id="form-status" class="text-center mt-4"></p>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-[#2C345C] text-white p-6">
+    <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
+      <div class="mb-4 md:mb-0">
+        <img src="images/logo.png" alt="Kbordados Logo" class="h-10" />
+        <p class="mt-2 text-sm">© 2025 Kbordados. Todos los derechos reservados.</p>
+      </div>
+      <div class="flex space-x-6">
+        <a href="#inicio" class="hover:text-[#D48C54] transition-colors">Inicio</a>
+        <a href="#servicios" class="hover:text-[#D48C54] transition-colors">Servicios</a>
+        <a href="#clientes" class="hover:text-[#D48C54] transition-colors">Clientes</a>
+        <a href="#trabajos" class="hover:text-[#D48C54] transition-colors">Testimonios</a>
+        <a href="#contacto" class="hover:text-[#D48C54] transition-colors">Contacto</a>
+      </div>
+    </div>
+  </footer>
+  <script src="js/script.js"></script>
+</body>
+</html> 
