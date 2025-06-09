@@ -7,11 +7,11 @@ This project is now a **simple static HTML/CSS/JS website** for Kbordados, migra
 ```
 /                  # Project root
 ├── index.html     # Main entry point (all content and layout)
-├── static-site/   # Contains images, CSS, and JS assets
-│   ├── images/    # All images and assets (logos, backgrounds, service images, etc.)
+├── static-site/
 │   ├── css/       # (Optional) For custom CSS if needed
-│   └── js/
-│       └── script.js  # Handles client carousel and contact form interactivity
+│   ├── js/
+│   │   └── script.js  # Handles client carousel and contact form interactivity
+│   └── images/    # All images and assets (logos, backgrounds, service images, etc.)
 ```
 
 ## 🧩 Features
