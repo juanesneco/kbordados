@@ -94,14 +94,32 @@ serviceButtons.forEach(btn => {
     const value = btn.getAttribute('data-value');
     if (selectedServices.includes(value)) {
       selectedServices = selectedServices.filter(s => s !== value);
-      btn.classList.remove('bg-[#D48C54]', 'text-white', 'border-[#D48C54]');
+      btn.style.backgroundColor = '';
+      btn.style.color = '#2C345C';
+      btn.classList.remove('text-white');
       btn.classList.add('bg-white', 'text-[#2C345C]', 'border-[#2C345C]');
     } else {
       selectedServices.push(value);
-      btn.classList.add('bg-[#D48C54]', 'text-white', 'border-[#D48C54]');
+      btn.style.backgroundColor = '#2C345C';
+      btn.style.color = '#fff';
+      btn.classList.add('text-white');
       btn.classList.remove('bg-white', 'text-[#2C345C]', 'border-[#2C345C]');
     }
     servicesInput.value = selectedServices.join(', ');
+  });
+
+  btn.addEventListener('mouseenter', function() {
+    const value = btn.getAttribute('data-value');
+    if (!selectedServices.includes(value)) {
+      btn.style.color = '#D48C54';
+    }
+  });
+
+  btn.addEventListener('mouseleave', function() {
+    const value = btn.getAttribute('data-value');
+    if (!selectedServices.includes(value)) {
+      btn.style.color = '#2C345C';
+    }
   });
 });
 

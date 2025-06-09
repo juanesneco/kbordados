@@ -88,13 +88,13 @@
     <div class="container mx-auto px-4">
       <h2 class="text-3xl font-bold text-center mb-8">Nuestros Clientes</h2>
       <div class="relative flex items-center justify-center">
-        <button id="slideLeft" class="absolute left-0 z-10 px-4 py-6 rounded-full bg-[#2C345C] text-[#D48C54] text-2xl shadow-lg transition-colors hover:bg-[#1e223d]" style="top: 50%; transform: translateY(-50%);">&#8592;</button>
+        <button id="slideLeft" class="absolute left-0 z-10 px-4 py-6 rounded-full text-2xl shadow-lg transition-colors" style="background-color: #2C345C; color: #D48C54; top: 50%; transform: translateY(-50%);">&#8592;</button>
         <div class="w-full">
           <div id="client-logos" class="grid grid-cols-2 md:grid-cols-6 gap-10 justify-items-center">
             <!-- Client logos will be injected by JS -->
           </div>
         </div>
-        <button id="slideRight" class="absolute right-0 z-10 px-4 py-6 rounded-full bg-[#2C345C] text-[#D48C54] text-2xl shadow-lg transition-colors hover:bg-[#1e223d]" style="top: 50%; transform: translateY(-50%);">&#8594;</button>
+        <button id="slideRight" class="absolute right-0 z-10 px-4 py-6 rounded-full text-2xl shadow-lg transition-colors" style="background-color: #2C345C; color: #D48C54; top: 50%; transform: translateY(-50%);">&#8594;</button>
       </div>
     </div>
   </section>
@@ -152,14 +152,14 @@
           <label for="message" class="block text-gray-700 font-bold mb-1">Instrucciones para los productos a cotizar</label>
           <textarea id="message" name="message" rows="5" required class="w-full border border-gray-300 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-[#D48C54]" placeholder="Describe los productos, cantidades, colores, fechas, etc."></textarea>
         </div>
-        <button type="submit" class="bg-[#D48C54] hover:bg-[#2C345C] text-white px-6 py-3 rounded-md w-full transition-colors">Enviar mensaje</button>
+        <button type="submit" class="px-6 py-3 rounded-md w-full transition-colors" style="background-color: #D48C54; color: #2C345C;">Enviar mensaje</button>
         <p id="form-status" class="text-center mt-4"></p>
       </form>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="bg-[#2C345C] text-white p-6">
+  <footer class="text-white p-6" style="background-color: #2C345C;">
     <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
       <div class="mb-4 md:mb-0">
         <img src="static-site/images/logo.png" alt="Kbordados Logo" class="h-10" />
