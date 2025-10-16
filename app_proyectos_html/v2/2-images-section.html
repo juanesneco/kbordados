@@ -1,0 +1,64 @@
+<style>
+    .reference-images {
+        margin-top: 20px;
+    }
+
+    .images-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 24px;
+        margin-top: 30px;
+    }
+
+    .image-card {
+        background: #f8f9fb;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .image-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    }
+
+    .image-card img {
+        width: 100%;
+        height: 200px;
+        object-fit: contain;
+        padding: 20px;
+        background: white;
+    }
+
+    @media (max-width: 768px) {
+        .images-grid {
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 16px;
+        }
+
+        .image-card img {
+            height: 150px;
+            padding: 12px;
+        }
+    }
+</style>
+
+<div class="reference-images">
+    <h3 class="section-title">Referencias Visuales</h3>
+    <div class="images-grid">
+        <div class="image-card">
+            <img src="{{image_1}}" alt="Referencia 1">
+        </div>
+        <div class="image-card">
+            <img src="{{image_2}}" alt="Referencia 2">
+        </div>
+        <div class="image-card">
+            <img src="{{image_3}}" alt="Referencia 3">
+        </div>
+        <div class="image-card">
+            <img src="{{image_4}}" alt="Referencia 4">
+        </div>
+    </div>
+</div>
+
