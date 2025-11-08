@@ -1,32 +1,144 @@
 # Kbordados Quotation Template - Version 2
 
-**Modern, Premium Design** - Inspired by Nike, Apple, and Tesla's minimalist aesthetics.
+**Apple & Nike-Inspired Minimalist Design** - Clean, refined, and professional.
 
 ---
 
-## 🎨 What's New in V2
+## 🎨 Design Philosophy
+
+V2 follows the design principles of **Apple and Nike**: maximum clarity with minimal visual elements, generous whitespace, refined typography, and subtle interactions. The design focuses on content hierarchy and readability while maintaining a premium, modern aesthetic.
+
+### Core Design Principles
+1. **Whitespace as a Design Element** - Generous padding creates breathing room
+2. **Typography-First** - SF Pro Display (Apple's font) with careful hierarchy
+3. **Minimal Borders** - Subtle dividers instead of heavy borders
+4. **Monochromatic Palette** - Grays and blacks with one accent color
+5. **Subtle Shadows** - Almost imperceptible depth (0.04-0.06 opacity)
+6. **Clean Interactions** - Smooth hover effects and transitions
 
 ### Design Improvements
-- **Modern Minimalist Design** - Clean, spacious layout with premium feel
-- **Better Typography** - System fonts for crisp rendering across all devices
-- **Gradient Background** - Subtle gradient for visual depth
-- **Card-Based Layout** - Rounded corners and soft shadows
-- **Enhanced Header** - Larger logo, better information hierarchy
-- **Improved Tables** - Less borders, more white space, hover effects
-- **Responsive Grid** - Image cards with hover animations
-- **Better Color Contrast** - Improved readability
-- **Print-Optimized** - Clean output when printing or converting to PDF
+- ✨ **Minimalist Aesthetic** - Inspired by Apple.com and Nike.com
+- 📝 **Refined Typography** - SF Pro Display with optimized letter-spacing
+- 🎨 **Monochromatic Colors** - Apple's signature gray palette (#f5f5f7, #1d1d1f, #86868b)
+- 🔲 **Borderless Tables** - Clean rows with subtle dividers only
+- 🌊 **Gradient Header** - Dark to blue gradient for visual depth
+- 📏 **Perfect Spacing** - Calculated padding for optimal readability
+- 💫 **Smooth Animations** - Subtle hover effects and transitions
+- 🖨️ **A4 Export Optimized** - Professional PDF output
 
 ### Visual Design Elements
-- Gradient background from light gray to blue-gray
-- White container with large border radius and shadow
-- Navy blue gradient header with decorative circle
-- Logo in white rounded card
-- Grid-based information display
-- Minimal table borders with subtle separators
-- Hover effects on product rows
-- Card-based image gallery with shadows
-- Modern summary table with clear visual hierarchy
+- Apple-gray background (#f5f5f7)
+- White container with subtle shadow (0.06 opacity)
+- Gradient header (black #1d1d1f → navy #2C345C)
+- Logo in semi-transparent white card with hover lift
+- Borderless tables with transparent headers
+- Minimal dividers in light gray (#f5f5f7)
+- Hover effects with smooth 0.15s transitions
+- Light background cards (#fafafa) for summary and terms
+
+---
+
+## 🖨️ A4 Export System - Technical Overview
+
+### How It Works
+
+The template uses a **responsive-on-screen, A4-on-print** approach. This means:
+
+**📱 On Screen (Mobile/Desktop):**
+- Template is fully responsive and adapts to any screen size
+- Uses percentage-based widths (`width: 100%`, `max-width: 1000px`)
+- Content reflows naturally for optimal viewing on all devices
+- Mobile-friendly with adjusted padding and font sizes at 768px breakpoint
+
+**🖨️ On Print/Export:**
+- Template locks to exact A4 dimensions (210mm × 297mm)
+- Uses `@media print` CSS to enforce A4 format
+- Automatically adjusts all spacing to fit on a single page
+- Preserves colors and gradients with `print-color-adjust: exact`
+
+### Technical Implementation
+
+```css
+/* Screen View - Responsive */
+.container {
+    max-width: 1000px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* Print/Export - Fixed A4 */
+@media print {
+    @page {
+        size: A4;
+        margin: 0;
+    }
+    
+    .container {
+        width: 210mm;
+        min-height: 297mm;
+        max-width: 100%;
+    }
+}
+```
+
+### How to Export to A4 Format
+
+#### Method 1: Browser Print (Recommended)
+1. Open the HTML file in any modern browser (Chrome, Safari, Firefox, Edge)
+2. Press `Ctrl+P` (Windows) or `Cmd+P` (Mac) to open print dialog
+3. Select "Save as PDF" as destination
+4. **Important Settings:**
+   - Paper size: **A4**
+   - Margins: **None** or **Minimum**
+   - Background graphics: **Enabled** ✓
+   - Headers/Footers: **Disabled**
+5. Click "Save" or "Print"
+
+#### Method 2: Chrome DevTools (Precise Control)
+1. Open HTML file in Chrome
+2. Press `F12` to open DevTools
+3. Press `Ctrl+Shift+P` (Windows) or `Cmd+Shift+P` (Mac)
+4. Type "Print" and select "Show Print"
+5. Configure:
+   - Destination: "Save as PDF"
+   - Paper size: "A4"
+   - Margins: "None"
+   - Background graphics: ✓
+6. Click "Save"
+
+#### Method 3: Puppeteer/Headless Chrome (Automated)
+```javascript
+const puppeteer = require('puppeteer');
+
+async function generatePDF() {
+    const browser = await puppeteer.launch();
+    const page = await browser.newPage();
+    await page.goto('file:///path/to/4-template.html');
+    await page.pdf({
+        path: 'quotation.pdf',
+        format: 'A4',
+        printBackground: true,
+        margin: { top: 0, right: 0, bottom: 0, left: 0 }
+    });
+    await browser.close();
+}
+```
+
+### Why This Approach?
+
+**Advantages:**
+- ✅ **Lower Export Costs** - Simple responsive layout requires less processing
+- ✅ **Better Mobile Experience** - Content adapts to phone screens naturally
+- ✅ **Consistent A4 Output** - Always perfect when printed or exported
+- ✅ **No Cropping** - Content fits perfectly on A4 without horizontal scroll
+- ✅ **One Template** - Same file works for both screen viewing and PDF export
+
+**Key Technical Details:**
+- Viewport: `width=device-width, initial-scale=1.0` (standard responsive)
+- Container: Flexible width on screen, fixed 210mm on print
+- Fonts: System fonts (`-apple-system`, SF Pro Display) for fast rendering
+- Spacing: Optimized to fit all content on a single A4 page (297mm height)
+- Colors: Preserved in print with `-webkit-print-color-adjust: exact`
 
 ---
 
@@ -207,41 +319,57 @@ The main template provides all the modern styling and structure. Simply inject t
 
 ---
 
-## 🎨 Design System V2
+## 🎨 Design System V2 - Apple/Nike Style
 
-### Color Palette
-- **Primary**: `#2C345C` (Navy Blue) - Brand color
-- **Primary Dark**: `#1a1f3a` (Dark Navy) - Gradient accent
-- **Text Primary**: `#1a1a1a` (Near Black) - Main text
-- **Text Secondary**: `#2c3e50` (Dark Slate) - Secondary text
-- **Text Muted**: `#5a6c7d` (Muted Blue) - Labels
-- **Background**: `linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)`
-- **Surface**: `#ffffff` (White) - Cards and containers
-- **Surface Light**: `#f8f9fb` (Off White) - Table headers, backgrounds
-- **Border**: `#eef0f4` (Very Light Gray) - Subtle dividers
-- **Border Medium**: `#e0e4ea` (Light Gray) - Medium dividers
+### Color Palette (Monochromatic)
+Inspired by Apple's clean color system:
 
-### Typography
-- **Font Family**: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif
-- **Company Name**: 32px, Bold, -0.5px letter spacing
-- **Section Titles**: 24px, Bold, -0.5px letter spacing
-- **Info Labels**: 11px, Uppercase, 1.5px letter spacing
-- **Info Values**: 20px, Semi-bold, -0.3px letter spacing
-- **Table Headers**: 12px, Semi-bold, Uppercase, 1px letter spacing
-- **Body Text**: 14px, Normal, 1.6 line height
+- **Background**: `#f5f5f7` (Apple Gray) - Page background
+- **Surface**: `#ffffff` (Pure White) - Main container
+- **Surface Elevated**: `#fafafa` (Off White) - Cards, summary, term labels
+- **Text Primary**: `#1d1d1f` (Apple Black) - Main text, headings
+- **Text Secondary**: `#86868b` (Apple Gray) - Labels, muted text
+- **Divider**: `#f5f5f7` (Very Light) - Subtle table dividers
+- **Divider Medium**: `#e8e8ed` (Light Gray) - Medium dividers
+- **Divider Strong**: `#d2d2d7` (Medium Gray) - Strong dividers
+- **Accent**: `#2C345C` (Navy Blue) - Brand color for gradient
+- **Gradient Header**: `linear-gradient(135deg, #1d1d1f 0%, #2C345C 100%)`
 
-### Spacing
-- **Container Padding**: 60px (desktop) / 30px (mobile)
-- **Section Spacing**: 60px between major sections
-- **Card Padding**: 30px
-- **Table Cell Padding**: 20px vertical, 16px horizontal
-- **Grid Gap**: 24px (images), 30px (info cards)
+### Typography (Apple-Style)
+Using SF Pro Display (Apple's system font) with refined spacing:
 
-### Shadows & Effects
-- **Container Shadow**: `0 20px 60px rgba(0, 0, 0, 0.08)`
-- **Card Shadow**: `0 4px 12px rgba(0, 0, 0, 0.03)`
-- **Card Hover**: `0 8px 24px rgba(0, 0, 0, 0.08)` + translateY(-4px)
-- **Border Radius**: 16px (container), 12px (cards, tables)
+- **Font Stack**: `-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif`
+- **Font Smoothing**: `-webkit-font-smoothing: antialiased` (smooth rendering)
+- **Company Name**: 32px, Weight 600, -1px letter spacing
+- **Section Titles**: 22px, Weight 600, -0.5px letter spacing
+- **Info Labels**: 10px, Uppercase, Weight 500, 2px letter spacing, 60% opacity
+- **Info Values**: 20px, Weight 500, -0.5px letter spacing
+- **Table Headers**: 10px, Weight 500, Uppercase, 1.5px letter spacing
+- **Table Body**: 13px, Weight 400
+- **Body Text**: 13px, Weight 400, 1.5 line height
+
+### Spacing (Optimized for A4)
+Balanced spacing that fits content on a single A4 page:
+
+- **Body Padding**: 20px / 10px
+- **Container Padding**: 32px / 40px (top/bottom, left/right)
+- **Header Padding**: 30px / 40px
+- **Section Top Margin**: 32px (between major sections)
+- **Section Bottom Margin**: 20px
+- **Table Row Padding**: 14px / 12px (vertical, horizontal)
+- **Table Header Padding**: 12px / 12px / 10px (top, h, bottom)
+- **Summary Box Padding**: 20px / 24px
+- **Terms Padding**: 16px / 18px
+
+### Shadows & Effects (Subtle)
+Barely visible depth - Apple style:
+
+- **Container Shadow**: `0 4px 24px rgba(0, 0, 0, 0.06)` - Very subtle
+- **Card Shadow**: `0 2px 12px rgba(0, 0, 0, 0.04)` - Almost invisible
+- **Logo Shadow**: `0 8px 24px rgba(0, 0, 0, 0.12)` - Slightly stronger
+- **Logo Hover**: `translateY(-2px)` + shadow increase
+- **Table Row Hover**: `background: #fafafa` + `0.15s ease` transition
+- **Border Radius**: 20px (container), 16px (logo), 12px (cards, tables)
 
 ### Responsive Breakpoints
 - **Mobile**: max-width: 768px
@@ -269,17 +397,23 @@ The main template provides all the modern styling and structure. Simply inject t
 
 | Feature | V1 | V2 |
 |---------|----|----|
-| Design Style | Traditional, table-based | Modern, minimalist, card-based |
-| Colors | Solid navy blue | Gradients, subtle backgrounds |
-| Typography | Inter font, standard sizing | System fonts, better hierarchy |
-| Spacing | Compact | Generous white space |
-| Logo | Small (60px) | Larger (80px) in white card |
-| Tables | Heavy borders | Minimal borders, hover effects |
-| Images | Simple 4-column table | Card grid with hover animations |
-| Summary | Right-aligned table | Styled card with clear hierarchy |
-| Responsive | Basic | Fully responsive grid layouts |
-| Print Support | Basic | Optimized print styles |
-| Overall Feel | Professional | Premium, modern, sophisticated |
+| **Design Inspiration** | Traditional business doc | Apple & Nike minimalism |
+| **Color System** | Navy blue + basic colors | Monochromatic Apple grays |
+| **Typography** | Inter font, standard | SF Pro Display, refined |
+| **Spacing** | Compact (fits in 1 page) | Optimized for A4 (1 page) |
+| **Borders** | Heavy table borders | Borderless with subtle dividers |
+| **Shadows** | Standard shadows | Ultra-subtle (0.04-0.06 opacity) |
+| **Logo** | Small (60px), flat | Larger (160px), white card with hover |
+| **Tables** | Bordered cells | Transparent headers, clean rows |
+| **Header** | Solid navy | Black-to-blue gradient |
+| **Summary** | Simple table | Light background card (#fafafa) |
+| **Terms** | Dark blue labels | Light gray labels (#fafafa) |
+| **Responsive** | Basic mobile support | Fully responsive + A4 print |
+| **Export System** | Simple print | Responsive screen + A4 export |
+| **Font Smoothing** | Standard | Antialiased (Apple-style) |
+| **Interactions** | None | Smooth hover effects (0.15s) |
+| **Overall Feel** | Professional | Premium, refined, minimal |
+
 
 
 

@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cotización - Kbordados</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            background: #f5f5f7;
+            color: #1d1d1f;
+            padding: 20px 10px;
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Container - responsive on screen, A4 on print */
+        .container {
+            max-width: 1000px;
+            width: 100%;
+            margin: 0 auto;
+            background: #ffffff;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        /* Header/Banner */
+        .header {
+            background: linear-gradient(135deg, #1d1d1f 0%, #2C345C 100%);
+            color: white;
+            padding: 30px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        .logo-section {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 16px;
+        }
+
+        .logo {
+            width: 160px;
+            height: auto;
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 16px;
+            padding: 14px 18px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+            transition: transform 0.2s ease;
+        }
+
+        .logo:hover {
+            transform: translateY(-2px);
+        }
+
+        .company-name {
+            color: white;
+            font-size: 32px;
+            font-weight: 600;
+            letter-spacing: -1px;
+        }
+
+        .quote-info {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 15px;
+            color: white;
+        }
+
+        .info-item {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            align-items: flex-end;
+            text-align: right;
+        }
+
+        .info-label {
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            opacity: 0.6;
+            font-weight: 500;
+        }
+
+        .info-value {
+            font-size: 20px;
+            font-weight: 500;
+            letter-spacing: -0.5px;
+        }
+
+        /* Content Area */
+        .content {
+            padding: 32px 40px 36px;
+        }
+
+        .section-title {
+            font-size: 22px;
+            font-weight: 600;
+            color: #1d1d1f;
+            margin-bottom: 20px;
+            margin-top: 32px;
+            letter-spacing: -0.5px;
+        }
+
+        .section-title:first-child {
+            margin-top: 0;
+        }
+
+        /* Products Table */
+        .products-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin-bottom: 28px;
+            font-size: 13px;
+        }
+
+        .products-table thead th {
+            background: transparent;
+            color: #86868b;
+            font-weight: 500;
+            text-align: left;
+            padding: 12px 12px 10px;
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            border-bottom: 1px solid #d2d2d7;
+        }
+
+        .products-table tbody td {
+            padding: 14px 12px;
+            border-bottom: 1px solid #f5f5f7;
+            color: #1d1d1f;
+            font-size: 13px;
+            word-wrap: break-word;
+        }
+
+        .products-table tbody tr:hover {
+            background: #fafafa;
+            transition: background 0.15s ease;
+        }
+
+        .products-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Summary Section */
+        .summary-section {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 28px;
+        }
+
+        .summary-table {
+            min-width: 300px;
+            max-width: 100%;
+            background: #fafafa;
+            border-radius: 12px;
+            padding: 20px 24px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid #e8e8ed;
+        }
+
+        .summary-row:last-child {
+            border-bottom: none;
+            margin-top: 8px;
+            padding-top: 12px;
+            border-top: 1px solid #d2d2d7;
+        }
+
+        .summary-label {
+            font-size: 14px;
+            color: #86868b;
+            font-weight: 400;
+        }
+
+        .summary-value {
+            font-size: 16px;
+            font-weight: 500;
+            color: #1d1d1f;
+        }
+
+        .summary-row:last-child .summary-label {
+            font-size: 17px;
+            color: #1d1d1f;
+            font-weight: 500;
+        }
+
+        .summary-row:last-child .summary-value {
+            font-size: 24px;
+            color: #1d1d1f;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+        }
+
+        /* Images Section */
+        .images-section {
+            margin-bottom: 25px;
+        }
+
+        /* Terms Section */
+        .terms-section {
+            margin-top: 32px;
+        }
+
+        .terms-table {
+            width: 100%;
+            border-radius: 12px;
+            overflow: visible;
+            box-shadow: none;
+        }
+
+        .terms-table tr {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            border-bottom: 1px solid #f5f5f7;
+        }
+
+        .terms-table tr:last-child {
+            border-bottom: none;
+        }
+
+        .terms-label {
+            background: #fafafa;
+            color: #1d1d1f;
+            padding: 16px 18px;
+            font-weight: 500;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            word-wrap: break-word;
+        }
+
+        .terms-value {
+            background: white;
+            padding: 16px 18px;
+            color: #1d1d1f;
+            font-size: 13px;
+            line-height: 1.6;
+            vertical-align: top;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+
+        /* Ensure nested content in terms value doesn't cause overflow */
+        .terms-value * {
+            max-width: 100%;
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px 5px;
+            }
+
+            .container {
+                border-radius: 12px;
+            }
+
+            .content {
+                padding: 20px 15px 24px;
+            }
+
+            .header {
+                padding: 20px 15px;
+                gap: 12px;
+            }
+
+            .logo-section {
+                align-items: flex-start;
+            }
+
+            .logo {
+                width: 100px;
+            }
+
+            .company-name {
+                font-size: 20px;
+            }
+
+            .quote-info {
+                gap: 10px;
+            }
+
+            .info-label {
+                font-size: 9px;
+            }
+
+            .info-value {
+                font-size: 16px;
+            }
+
+            .section-title {
+                font-size: 20px;
+                margin-bottom: 16px;
+                margin-top: 28px;
+            }
+
+            .terms-table tr {
+                grid-template-columns: 130px 1fr;
+            }
+
+            .terms-label {
+                font-size: 11px;
+                padding: 12px 10px;
+            }
+
+            .terms-value {
+                font-size: 11px;
+                padding: 12px 10px;
+            }
+
+            /* Nested content in terms */
+            .terms-value > div[style*="grid-template-columns"] {
+                grid-template-columns: 1fr !important;
+                gap: 10px !important;
+            }
+
+            .terms-value > div > div[style*="padding"] {
+                padding: 12px !important;
+                font-size: 12px !important;
+            }
+
+            .terms-value > div > div > div {
+                font-size: 11px !important;
+            }
+
+            .terms-value > div > div > div[style*="font-weight"] {
+                font-size: 12px !important;
+            }
+
+            .products-table {
+                font-size: 11px;
+                margin-bottom: 20px;
+            }
+
+            .products-table thead th {
+                padding: 10px 8px 8px;
+                font-size: 9px;
+            }
+
+            .products-table tbody td {
+                padding: 12px 8px;
+                font-size: 11px;
+            }
+
+            .summary-section {
+                margin-bottom: 20px;
+            }
+
+            .summary-table {
+                padding: 16px 20px;
+                min-width: 100%;
+            }
+
+            .summary-label {
+                font-size: 13px;
+            }
+
+            .summary-value {
+                font-size: 14px;
+            }
+
+            .summary-row {
+                padding: 6px 0;
+            }
+
+            .summary-row:last-child {
+                margin-top: 6px;
+                padding-top: 10px;
+            }
+
+            .summary-row:last-child .summary-label {
+                font-size: 16px;
+            }
+
+            .summary-row:last-child .summary-value {
+                font-size: 22px;
+            }
+        }
+
+        /* Print Styles - Ensure A4 format */
+        @media print {
+            @page {
+                size: A4;
+                margin: 0;
+            }
+
+            body {
+                background: white;
+                padding: 0;
+                margin: 0;
+            }
+
+            .container {
+                box-shadow: none;
+                border-radius: 0;
+                max-width: 100%;
+                width: 210mm;
+                min-height: 297mm;
+                margin: 0;
+            }
+
+            .content {
+                padding: 25px 30px;
+            }
+
+            .header {
+                padding: 25px 30px;
+                flex-direction: row;
+                justify-content: space-between;
+                background: linear-gradient(135deg, #1d1d1f 0%, #2C345C 100%) !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .logo-section {
+                align-items: flex-start;
+            }
+
+            .quote-info {
+                align-items: flex-end;
+            }
+
+            .info-item {
+                align-items: flex-end;
+                text-align: right;
+            }
+
+            /* Reset terms table to desktop layout for print */
+            .terms-table tr {
+                grid-template-columns: 200px 1fr;
+            }
+
+            .terms-label {
+                font-size: 13px;
+                padding: 16px 18px;
+                background: #fafafa !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .terms-value {
+                font-size: 13px;
+                padding: 16px 18px;
+            }
+
+            /* Reset nested content for print */
+            .terms-value > div[style*="grid-template-columns"] {
+                grid-template-columns: 1fr 1fr !important;
+            }
+
+            .terms-value > div > div[style*="padding"] {
+                font-size: 13px !important;
+            }
+
+            .summary-table {
+                background: #fafafa !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            /* Prevent page breaks inside elements */
+            .products-table,
+            .summary-section,
+            .terms-section,
+            .terms-table tr {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo-section">
+                <img class="logo" src="https://storage.googleapis.com/glide-prod.appspot.com/uploads-v2/Vu8zU3WNFx62Azjw7VMQ/pub/QfJUKbjgJbjdb4LVcjwL.png" alt="Kbordados Logo">
+                <div class="company-name">KBORDADOS</div>
+            </div>
+            
+            <div class="quote-info">
+                <div class="info-item">
+                    <div class="info-label">Cotización</div>
+                    <div class="info-value">#{{ID}}</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Fecha</div>
+                    <div class="info-value">{{fecha}}</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Cliente</div>
+                    <div class="info-value">{{cliente}}</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Content -->
+        <div class="content">
+            <!-- Products Section -->
+            <h2 class="section-title">Productos</h2>
+            
+            <table class="products-table">
+                <thead>
+                    <tr>
+                        <th>Cantidad</th>
+                        <th>Tipo</th>
+                        <th>Descripción</th>
+                        <th>Talla</th>
+                        <th>Características</th>
+                        <th>Precio</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{productos}}
+                </tbody>
+            </table>
+
+            <!-- Summary -->
+            <div class="summary-section">
+                <div class="summary-table">
+                    <div class="summary-row">
+                        <span class="summary-label">Subtotal</span>
+                        <span class="summary-value">{{subtotal}}</span>
+                    </div>
+                    <div class="summary-row">
+                        <span class="summary-label">IVA (16%)</span>
+                        <span class="summary-value">{{iva}}</span>
+                    </div>
+                    <div class="summary-row">
+                        <span class="summary-label">Total</span>
+                        <span class="summary-value">{{total}}</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Images -->
+            <div class="images-section">
+                {{imagenes}}
+            </div>
+
+            <!-- Terms & Conditions -->
+            <div class="terms-section">
+                <h2 class="section-title">Términos y Condiciones</h2>
+                {{tabla_terminos}}
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
